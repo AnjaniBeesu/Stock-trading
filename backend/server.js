@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const mongodb = process.env.MONGO_URL;
 import cookieParser from "cookie-parser";
 
-mongoose.connect(mongodb);
+await mongoose.connect(mongodb);
 
 app.get("/", async (req, res) => {
     res.send("hello world");
@@ -33,7 +33,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(userRoutes);
-
 
 
 // app.get("/addTodatabase", async (req, res) => {
@@ -204,25 +203,58 @@ app.use(userRoutes);
 // })
 
 app.get("/allHoldings", async (req, res) => {
-    let allholdings = await holdingsModels.find({});
-    res.json(allholdings);
+    try {
+        let allholdings = await holdingsModels.find({});
+        res.json(allholdings);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to fetch orders",
+            error: error.message
+        });
+    }
 })
 
 app.get("/allPositions", async (req, res) => {
-    let allpositions = await PositionModel.find({});
-    res.json(allpositions);
+    try {
+        let allpositions = await PositionModel.find({});
+        res.json(allpositions);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to fetch orders",
+            error: error.message
+        });
+    }
 })
 
 app.post("/newOrder", async (req, res) => {
-    let newOrder = new OrderModel({
-        name: req.body.name,
-        qty: req.body.qty,
-        price: req.body.price,
-        mode: req.body.mode
-    })
-    await newOrder.save();
-    res.json(newOrder);
+    try {
+        let newOrder = new OrderModel({
+            name: req.body.name,
+            qty: req.body.qty,
+            price: req.body.price,
+            mode: req.body.mode
+        })
+        await newOrder.save();
+        res.json(newOrder);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to fetch orders",
+            error: error.message
+        });
+    }
 })
+
+app.get("/allOrders", async (req, res) => {
+    try {
+        const allOrders = await OrderModel.find({});
+        res.json(allOrders);
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to fetch orders",
+            error: error.message
+        });
+    }
+});
 
 app.get("/home", async (req, res) => {
     res.send("server is Listening");
