@@ -11,6 +11,13 @@
 
 ---
 
+## 📚 Project Documentation
+
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [License](LICENSE)
+
 ## ✨ Overview
 
 Stock Trading Dashboard is a full-stack web application that simulates the experience of managing a personal stock portfolio.
@@ -193,7 +200,7 @@ Run the applications in separate terminals when working on the complete applicat
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+Contributions are welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md) before submitting changes and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 We appreciate developers who want to improve the project, fix bugs, enhance existing features, and introduce useful improvements.
 
@@ -211,7 +218,7 @@ Please keep your contributions focused and provide a clear description of the ch
 
 ## 🔐 Security
 
-Please do not report security vulnerabilities through public issues. Use the repository's security reporting instructions once published.
+Please do not report security vulnerabilities through public issues. Follow the [Security Policy](SECURITY.md) to use the upstream repository's private reporting channel or request a private channel if it is unavailable.
 
 Never commit credentials, database connection strings, JWT secrets, or environment files.
 
@@ -221,7 +228,7 @@ This project is intended for educational purposes and stock trading simulation. 
 
 ## 📄 License
 
-The project's license will be published after approval by the project maintainer. Refer to the repository's `LICENSE` file once available.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
